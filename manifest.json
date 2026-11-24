@@ -1,0 +1,432 @@
+{
+  "project": "the-desert",
+  "source_file": "deserto_jogo_v136.html",
+  "version": "bd9e7cf6b57b",
+  "note": "A ordem de \"entries\" é a ordem de execução original. Não reordenar sem testar.",
+  "entries": [
+    {
+      "id": "ui-inventory-css",
+      "file": "ui/inventory.css",
+      "type": "css",
+      "order": 0,
+      "sha256": "15cc02d064cb",
+      "bytes": 3852,
+      "minified": false,
+      "description": "Estilo do painel de inventário (#invRoot). Injetado pelo carregador.",
+      "defines_globals": [],
+      "reads_globals_from": {}
+    },
+    {
+      "id": "ui-inventory-js",
+      "file": "ui/inventory.js",
+      "type": "classic",
+      "order": 1,
+      "sha256": "6f29d031a6bf",
+      "bytes": 10161,
+      "minified": true,
+      "description": "Interface do inventário: equipar roupas, armaduras e acessórios. Script clássico, executado antes dos módulos (como no original).",
+      "defines_globals": [
+        "__invOpen"
+      ],
+      "reads_globals_from": {
+        "world/roads-and-terrain.js": [
+          "__Ln",
+          "__deathCine",
+          "__game",
+          "__safeCapture"
+        ],
+        "assets/vitrine-models.js": [
+          "__T"
+        ]
+      }
+    },
+    {
+      "id": "player-horse-system-js",
+      "file": "player/horse-system.js",
+      "type": "module",
+      "order": 2,
+      "sha256": "07322a4cbdcb",
+      "bytes": 65450,
+      "minified": false,
+      "description": "Sistema de cavalos (window.__createHorseSystem). Descrição provisória: confirmar.",
+      "defines_globals": [
+        "__camRootAnchor",
+        "__createHorseSystem",
+        "__horse",
+        "__horseBoot",
+        "__horseCamGuard",
+        "__horseHook",
+        "__horseSolid",
+        "__horseSolidOn",
+        "__selfHidden"
+      ],
+      "reads_globals_from": {
+        "world/roads-and-terrain.js": [
+          "__camRockGuard",
+          "__capsuleIn",
+          "__game",
+          "__inWorld",
+          "__profR",
+          "__riderVis",
+          "__rip",
+          "__solidGrid",
+          "__sw"
+        ]
+      }
+    },
+    {
+      "id": "animals-traffic-horses-js",
+      "file": "animals/traffic-horses.js",
+      "type": "module",
+      "order": 3,
+      "sha256": "264ced1af415",
+      "bytes": 200387,
+      "minified": true,
+      "description": "Tráfego autônomo de cavalos com cavaleiro: grafo de estradas, A*, evasão e máquina de estados. Portado de jogo_mexicanos_vida_min.",
+      "defines_globals": [
+        "__WK",
+        "__createTrafficHorses",
+        "__moradores",
+        "__npcReach",
+        "__npcRoad",
+        "__queueNpcRedress",
+        "__redressCivilNPC",
+        "__traffic",
+        "__trafficBoot",
+        "__trafficHook",
+        "__updateNpcClothing"
+      ],
+      "reads_globals_from": {
+        "world/roads-and-terrain.js": [
+          "__buildingBoxes",
+          "__dncH",
+          "__egyptGear",
+          "__game",
+          "__noSpawnDisks",
+          "__profR",
+          "__renderer",
+          "__solidGrid",
+          "__swimPose",
+          "__syncWxInfo",
+          "__wxInfo"
+        ]
+      }
+    },
+    {
+      "id": "animals-fauna-js",
+      "file": "animals/fauna.js",
+      "type": "module",
+      "order": 4,
+      "sha256": "7a033a4c767d",
+      "bytes": 91948,
+      "minified": false,
+      "description": "Fauna: sistemas de lagarto, águia e crocodilo, com constantes de ragdoll (window.__createLizardSystem, __eagleBoot, __crocBoot). Descrição provisória.",
+      "defines_globals": [
+        "__createLizardSystem",
+        "__eagleBoot",
+        "__eagleCfg",
+        "__eagleDebug",
+        "__eagleHook",
+        "__eagleSpawnNow",
+        "__eagles",
+        "__lizardBoot",
+        "__lizardHook",
+        "__lizards",
+        "__scorpionBoot",
+        "__scorpionDebug",
+        "__scorpionHook",
+        "__scorpions",
+        "__snakeDebug",
+        "__snakeSpawnNow",
+        "__snakes"
+      ],
+      "reads_globals_from": {
+        "world/roads-and-terrain.js": [
+          "__aurSite",
+          "__game",
+          "__midCityCenter",
+          "__poorCityCenter",
+          "__setGameHour",
+          "__shrubGrid",
+          "__solidGrid"
+        ],
+        "animals/crocodiles.js": [
+          "__crocBoot",
+          "__crocHook"
+        ],
+        "player/horse-system.js": [
+          "__horse"
+        ]
+      }
+    },
+    {
+      "id": "animals-crocodiles-js",
+      "file": "animals/crocodiles.js",
+      "type": "module",
+      "order": 5,
+      "sha256": "e25411277fb1",
+      "bytes": 40330,
+      "minified": false,
+      "description": "Crocodilos: boot, spawn e depuração (window.__crocBoot, __crocs, __crocSpawnNow). Descrição provisória.",
+      "defines_globals": [
+        "__crocBoot",
+        "__crocDebug",
+        "__crocHook",
+        "__crocSpawnNow",
+        "__crocs"
+      ],
+      "reads_globals_from": {
+        "world/roads-and-terrain.js": [
+          "__game",
+          "__litK",
+          "__rip"
+        ],
+        "player/horse-system.js": [
+          "__horse"
+        ],
+        "combat/combat-fx-and-enemy-bows.js": [
+          "__playerDead",
+          "__playerDrown"
+        ]
+      }
+    },
+    {
+      "id": "world-roads-and-terrain-js",
+      "file": "world/roads-and-terrain.js",
+      "type": "module",
+      "order": 6,
+      "sha256": "e6396d51242d",
+      "bytes": 335519,
+      "minified": true,
+      "description": "Mundo: planejamento de estradas, cache de rotas por célula, captura de ponteiro e testes de terreno. Contém código minificado. Descrição provisória.",
+      "defines_globals": [
+        "__FiBaseTest",
+        "__FiTest",
+        "__Ln",
+        "__WIND",
+        "__aurSite",
+        "__aurSiteReady",
+        "__aurelasBuilt",
+        "__bodyTemp",
+        "__buildingBoxes",
+        "__cam",
+        "__camRockGuard",
+        "__camRootAnchor",
+        "__camTerrainY",
+        "__capsuleIn",
+        "__cityLights",
+        "__cityStats",
+        "__deathCine",
+        "__dncH",
+        "__egyptGear",
+        "__envCount",
+        "__fishEco",
+        "__game",
+        "__gradeT",
+        "__inWorld",
+        "__le",
+        "__litK",
+        "__lzD",
+        "__lzP",
+        "__mapDone",
+        "__midCityCenter",
+        "__nightK",
+        "__noReflect",
+        "__noSpawnDisks",
+        "__objStats",
+        "__poorCityCenter",
+        "__profR",
+        "__px0",
+        "__pz0",
+        "__renderer",
+        "__riderVis",
+        "__rip",
+        "__riverWaterMat",
+        "__roadDebug",
+        "__roadNet",
+        "__roadObjAudit",
+        "__roadPainted",
+        "__roadPlanInfo",
+        "__safeCapture",
+        "__selfHidden",
+        "__setGameHour",
+        "__shrubGrid",
+        "__sky",
+        "__solidGrid",
+        "__sw",
+        "__swimPose",
+        "__syncWxInfo",
+        "__tNow",
+        "__trk",
+        "__wet",
+        "__winGlowList",
+        "__winGlowTick",
+        "__winPts",
+        "__wind",
+        "__world",
+        "__wxInfo"
+      ],
+      "reads_globals_from": {
+        "combat/combat-fx-and-enemy-bows.js": [
+          "__cineRespawn",
+          "__combatHook",
+          "__playerDead",
+          "__playerDrown"
+        ],
+        "player/horse-system.js": [
+          "__horse",
+          "__horseBoot",
+          "__horseCamGuard",
+          "__horseHook",
+          "__horseSolid",
+          "__horseSolidOn"
+        ],
+        "ui/inventory.js": [
+          "__invOpen"
+        ],
+        "animals/fauna.js": [
+          "__lizardBoot",
+          "__lizardHook"
+        ],
+        "animals/traffic-horses.js": [
+          "__queueNpcRedress",
+          "__trafficBoot",
+          "__trafficHook",
+          "__updateNpcClothing"
+        ]
+      }
+    },
+    {
+      "id": "assets-vitrine-models-js",
+      "file": "assets/vitrine-models.js",
+      "type": "module",
+      "order": 7,
+      "sha256": "2273b210ee55",
+      "bytes": 12487,
+      "minified": true,
+      "description": "Modelos da vitrine. Expõe THREE como window.__T. Contém código minificado.",
+      "defines_globals": [
+        "__T",
+        "__vitrineModels"
+      ],
+      "reads_globals_from": {}
+    },
+    {
+      "id": "combat-combat-fx-and-enemy-bows-js",
+      "file": "combat/combat-fx-and-enemy-bows.js",
+      "type": "module",
+      "order": 8,
+      "sha256": "c748eb83999c",
+      "bytes": 146384,
+      "minified": true,
+      "description": "Efeitos de combate, orbe de vida do jogador, sangue e inimigos com arco. Contém código minificado. Descrição provisória.",
+      "defines_globals": [
+        "__bowEnemyHead",
+        "__bowEnemyHp",
+        "__bowEnemyRig",
+        "__bowHitFighter",
+        "__cineRespawn",
+        "__combat",
+        "__combatForce",
+        "__combatHook",
+        "__combatLoaded",
+        "__combatNoEnemy",
+        "__inBattle",
+        "__playerDead",
+        "__playerDrown",
+        "__rag",
+        "__shieldOn"
+      ],
+      "reads_globals_from": {
+        "player/bow.js": [
+          "__bloodFx",
+          "__bowEquipped"
+        ],
+        "animals/crocodiles.js": [
+          "__crocs"
+        ],
+        "world/roads-and-terrain.js": [
+          "__deathCine",
+          "__game",
+          "__inWorld",
+          "__profR",
+          "__solidGrid",
+          "__sw",
+          "__world"
+        ],
+        "animals/fauna.js": [
+          "__eagles",
+          "__scorpions",
+          "__snakes"
+        ],
+        "player/horse-system.js": [
+          "__horse",
+          "__selfHidden"
+        ],
+        "assets/vitrine-models.js": [
+          "__vitrineModels"
+        ]
+      }
+    },
+    {
+      "id": "player-bow-js",
+      "file": "player/bow.js",
+      "type": "module",
+      "order": 9,
+      "sha256": "0dbf970fb3fc",
+      "bytes": 57031,
+      "minified": true,
+      "description": "Arqueiro do jogador: arco, flecha e animação copiada do gerador de arco. Contém código minificado em partes.",
+      "defines_globals": [
+        "__arcoBallistic",
+        "__arcoBones",
+        "__arcoDbg",
+        "__arcoDiagWK",
+        "__arcoFleeState",
+        "__arcoHorseNow",
+        "__arcoOptState",
+        "__arcoReadHips",
+        "__arcoTestCiv",
+        "__arcoTestCivPass",
+        "__arcoTestDeath",
+        "__arcoTestHorse",
+        "__arcoTestNpcs",
+        "__arcoTestOpt",
+        "__arcoTestWK",
+        "__arcoV3",
+        "__bloodFx",
+        "__bowEquipped",
+        "__combatHook"
+      ],
+      "reads_globals_from": {
+        "animals/traffic-horses.js": [
+          "__WK",
+          "__traffic"
+        ],
+        "combat/combat-fx-and-enemy-bows.js": [
+          "__bowEnemyHead",
+          "__bowEnemyRig",
+          "__bowHitFighter",
+          "__rag",
+          "__shieldOn"
+        ],
+        "world/roads-and-terrain.js": [
+          "__cam",
+          "__game",
+          "__world"
+        ],
+        "player/horse-system.js": [
+          "__horse",
+          "__selfHidden"
+        ],
+        "ui/inventory.js": [
+          "__invOpen"
+        ],
+        "animals/fauna.js": [
+          "__scorpions",
+          "__snakes"
+        ]
+      }
+    }
+  ]
+}

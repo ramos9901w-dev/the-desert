@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open-World Desert &amp; Ocean</title>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#000}canvas{display:block;width:100vw;height:100vh}</style>
+<script>
+/* CONFIGURAÇÃO CENTRAL DE CAMINHOS.
+   mode: 'online' (GitHub via jsDelivr) ou 'local' (arquivos ao lado deste HTML).
+   Pode ser sobrescrito pela URL: index.html?mode=local */
+window.DESERT_CONFIG = {
+  mode: 'online',
+  manifest: 'manifest.json',
+  online: {
+    base: 'https://cdn.jsdelivr.net/gh/ramos9901w-dev/the-desert@main/',
+    three: 'https://cdn.jsdelivr.net/npm/three@0.181.0/'
+  },
+  local: {
+    base: './',
+    three: './libraries/three/'
+  }
+};
+(function () {
+  var cfg = window.DESERT_CONFIG;
+  var q = new URLSearchParams(location.search).get('mode');
+  if (q && cfg[q]) cfg.mode = q;
+  var env = cfg[cfg.mode];
+  var base = new URL(env.base, document.baseURI).href;
+  window.DESERT_BASE = base;
+  /* importmap precisa existir antes de qualquer módulo ser buscado */
+  var im = document.createElement('script');
+  im.type = 'importmap';
+  im.textContent = JSON.stringify({ imports: {
+    'three': env.three + 'build/three.module.min.js',
+    'three/addons/': env.three + 'examples/jsm/'
+  }});
+  document.head.appendChild(im);
+  /* carregador: core/loader.js vem da mesma base (online ou local) */
+  window.DESERT_LOADER = import(base + 'core/loader.js');
+})();
+</script>
+</head>
+<body><canvas id="c"></canvas>
+</body></html>
